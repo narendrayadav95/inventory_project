@@ -1,0 +1,39 @@
+{% extends 'partials/base.html' %}
+{% block title %} Order Page {% endblock %}
+
+{% block content %}
+	{% include 'partials/topnav.html' %}
+	
+	<div class="container">
+		<div class="row my-4">
+			<div class="col-md-4"></div>
+			<div class="col-md-8">
+				<table class="table bg-white">
+					<!-- <caption>table title and/or explanatory text</caption> -->
+					<thead class="bg-info">
+						<tr class="text-white">
+							<th>#</th>
+							<th>Product</th>
+							<th>Category</th>
+							<th>Qualtity</th>
+							<th>Order By</th>
+							<th>Order Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+						<tr>
+							<td>{{order.id}}</td>
+							<td>{{order.product}}</td>
+							<td>{{order.product.category}}</td>
+							<td>{{order.product.quantity}}</td>
+							<td>{{order.staff.username}}</td>
+							<td>{{order.date}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>		
+	</div>
+{% endblock %}
